@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "authors": [
     {
-      "name": "David Leston",
-      "email": "david.leston@gmail.com"
+      "name": "David Leston"
     }
   ],
   "main": [
-    "dist/davidLeston.uniqueProperty.js"
+    "dist/uniqueProperty.js"
   ],
   "ignore": [
     "src",

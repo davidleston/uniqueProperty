@@ -40,10 +40,10 @@ var lintFiles = [
 gulp.task('build', function() {
   gulp.src(sourceFiles)
     .pipe(plumber())
-    .pipe(concat('davidLeston.uniqueProperty.js'))
+    .pipe(concat('uniqueProperty.js'))
     .pipe(gulp.dest('./dist/'))
     .pipe(uglify())
-    .pipe(rename('davidLeston.uniqueProperty.min.js'))
+    .pipe(rename('uniqueProperty.min.js'))
     .pipe(gulp.dest('./dist'));
 });
 
