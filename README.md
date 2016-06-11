@@ -1,6 +1,7 @@
 Angular Unique Property Validator
 =================================
 
+[![Build Status](https://travis-ci.org/davidleston/uniqueProperty.svg?branch=master)](https://travis-ci.org/davidleston/uniqueProperty)
 ![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
 Validates that an object has a unique value of a property amongst a collection of properties. For example, imagine your application manages a list of friends. You want to ensure you don't accidentally enter the same friend twice. To validate that an input field does not contain the same name as another friend you would do the following:
