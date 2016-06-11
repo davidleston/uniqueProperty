@@ -16,7 +16,7 @@ Validates that an object has a unique value of a property amongst a collection o
 
 When the input field contains the same name as any of the other friends the field will be marked invalid.
 
-Unique property validation works with any element with an (`ng-model`)[https://docs.angularjs.org/api/ng/directive/ngModel].
+Unique property validation works with any element with an [`ng-model`](https://docs.angularjs.org/api/ng/directive/ngModel).
 
 # Get Started
 
@@ -45,14 +45,14 @@ When you're done, your setup should look similar to the following:
 
 # Details
 
-`unique-property-path` may contain any path that is supported by (lodash's toPath function)[https://lodash.com/docs#toPath].
+`unique-property-path` may contain any path that is supported by [lodash's toPath function](https://lodash.com/docs#toPath).
 
 `unique-property-collection` may be an array or an object. If `unique-property-collection` is an object the object's values are used as the collection. Adding or removing properties to an object is tracked just as adding and removing elements from an array is tracked.
 
 If `unique-property-object`, `unique-property-collection`, or `unique-property-path` are null or undefined the validator will not mark the field valid.
 
 Validation will occur when:
-* whenever the value bound using `ng-model` is attempted to be updated, see (`ng-model-options`)[https://docs.angularjs.org/api/ng/directive/ngModelOptions]
+* whenever the value bound using `ng-model` is attempted to be updated, see [`ng-model-options`](https://docs.angularjs.org/api/ng/directive/ngModelOptions)
 * the value of the specified property on any element in the array changes
 * elements are added or removed from the array assigned to `unique-property-collection`
 * The value of `unique-property-object`, `unique-property-collection`, or `unique-property-path` changes
