@@ -1,9 +1,12 @@
 {
   "name": "david-leston.unique-property",
-  "version": "0.1.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:davidleston/uniqueProperty.git"
+  },
   "author": {
-    "name": "David Leston",
-    "email": "david.leston@gmail.com"
+    "name": "David Leston"
   },
   "dependencies": {},
   "devDependencies": {
