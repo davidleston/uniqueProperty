@@ -56,6 +56,6 @@ Validation will occur when:
 * whenever the value bound using `ng-model` is attempted to be updated, see [`ng-model-options`](https://docs.angularjs.org/api/ng/directive/ngModelOptions)
 * the value of the specified property on any element in the array changes
 * elements are added or removed from the array assigned to `unique-property-collection`
-* The value of `unique-property-object`, `unique-property-collection`, or `unique-property-path` changes
+* the value of `unique-property-object`, `unique-property-collection`, or `unique-property-path` changes
 
 Validator has correct behavior if the `ng-model-options` parameter `allowInvalid` is set to `true`.
