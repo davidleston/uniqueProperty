@@ -9,13 +9,18 @@ angular.module('davidLeston.uniqueProperty', []).directive('uniqueProperty', fun
       propertyPath: '@uniquePropertyPath'
     },
     link: function ($scope, $elem, $attrs, ngModelController) {
-      ngModelController.$validators.uniqueProperty = function (propertyValue) {
+      var validatorName = 'uniqueProperty_' + _.chain($scope.propertyPath)
+        .toPath()
+        .join('_')
+        .value();
+      ngModelController.$validators[validatorName] = function (propertyValue) {
         return !$scope.object ||
           !$scope.propertyPath ||
           !_.chain($scope.collection)
             .values()
             .without($scope.object)
             .map($scope.propertyPath)
+            .compact()
             .includes(propertyValue)
             .value();
       };

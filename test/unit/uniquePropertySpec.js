@@ -20,7 +20,7 @@ describe('uniqueProperty directive', function () {
     $rootScope.propertyPath = 'name';
     $compile(html)($rootScope);
     $rootScope.$digest();
-    expect($rootScope.form.nameInput.$error.uniqueProperty).to.be.true;
+    expect($rootScope.form.nameInput.$error.uniqueProperty_name).to.be.true;
   }));
 
   it('duplicate name object', inject(function ($compile, $rootScope){
@@ -29,7 +29,7 @@ describe('uniqueProperty directive', function () {
     $rootScope.propertyPath = 'name';
     $compile(html)($rootScope);
     $rootScope.$digest();
-    expect($rootScope.form.nameInput.$error.uniqueProperty).to.be.true;
+    expect($rootScope.form.nameInput.$error.uniqueProperty_name).to.be.true;
   }));
 
   it('empty collection', inject(function ($compile, $rootScope){
@@ -77,13 +77,13 @@ describe('uniqueProperty directive', function () {
     expect($rootScope.form.nameInput.$invalid).to.be.false;
   }));
 
-  it('two undefineds are dupes', inject(function ($compile, $rootScope){
+  it('two undefineds are not dupes', inject(function ($compile, $rootScope){
     $rootScope.entity = {};
     $rootScope.collection = [$rootScope.entity, {}];
     $rootScope.propertyPath = 'name';
     $compile(html)($rootScope);
     $rootScope.$digest();
-    expect($rootScope.form.nameInput.$error.uniqueProperty).to.be.true;
+    expect($rootScope.form.nameInput.$invalid).to.be.false;
   }));
 
   it('Changing entity creates invalid', inject(function ($compile, $rootScope){
@@ -96,7 +96,7 @@ describe('uniqueProperty directive', function () {
     expect($rootScope.form.nameInput.$invalid).to.be.false;
     $rootScope.entity.name = secondEntity.name;
     $rootScope.$digest();
-    expect($rootScope.form.nameInput.$error.uniqueProperty).to.be.true;
+    expect($rootScope.form.nameInput.$error.uniqueProperty_name).to.be.true;
   }));
 
   it('Changing another element in collection creates invalid', inject(function ($compile, $rootScope){
@@ -109,7 +109,7 @@ describe('uniqueProperty directive', function () {
     expect($rootScope.form.nameInput.$invalid).to.be.false;
     secondEntity.name = $rootScope.entity.name;
     $rootScope.$digest();
-    expect($rootScope.form.nameInput.$error.uniqueProperty).to.be.true;
+    expect($rootScope.form.nameInput.$error.uniqueProperty_name).to.be.true;
   }));
 
   it('Changing another element in collection (object) creates invalid', inject(function ($compile, $rootScope){
@@ -122,7 +122,7 @@ describe('uniqueProperty directive', function () {
     expect($rootScope.form.nameInput.$invalid).to.be.false;
     secondEntity.name = $rootScope.entity.name;
     $rootScope.$digest();
-    expect($rootScope.form.nameInput.$error.uniqueProperty).to.be.true;
+    expect($rootScope.form.nameInput.$error.uniqueProperty_name).to.be.true;
   }));
 
   it('Changing collection membership creates invalid', inject(function ($compile, $rootScope){
@@ -134,7 +134,7 @@ describe('uniqueProperty directive', function () {
     expect($rootScope.form.nameInput.$invalid).to.be.false;
     $rootScope.collection.push({name: 'a'});
     $rootScope.$digest();
-    expect($rootScope.form.nameInput.$error.uniqueProperty).to.be.true;
+    expect($rootScope.form.nameInput.$error.uniqueProperty_name).to.be.true;
   }));
 
   it('Changing collection (object) membership creates invalid', inject(function ($compile, $rootScope){
@@ -146,7 +146,7 @@ describe('uniqueProperty directive', function () {
     expect($rootScope.form.nameInput.$invalid).to.be.false;
     $rootScope.collection.b = {name: 'a'};
     $rootScope.$digest();
-    expect($rootScope.form.nameInput.$error.uniqueProperty).to.be.true;
+    expect($rootScope.form.nameInput.$error.uniqueProperty_name).to.be.true;
   }));
 
   it('Changing element no longer in collection does not create invalid', inject(function ($compile, $rootScope){
@@ -211,7 +211,7 @@ describe('uniqueProperty directive', function () {
     expect($rootScope.form.nameInput.$invalid).to.be.false;
     $rootScope.collection = [$rootScope.collection, {name: 'a'}];
     $rootScope.$digest();
-    expect($rootScope.form.nameInput.$error.uniqueProperty).to.be.true;
+    expect($rootScope.form.nameInput.$error.uniqueProperty_name).to.be.true;
   }));
 
   it('Setting collection (object) to new collection creates invalid', inject(function ($compile, $rootScope){
@@ -223,7 +223,7 @@ describe('uniqueProperty directive', function () {
     expect($rootScope.form.nameInput.$invalid).to.be.false;
     $rootScope.collection = {a: $rootScope.collection, b: {name: 'a'}};
     $rootScope.$digest();
-    expect($rootScope.form.nameInput.$error.uniqueProperty).to.be.true;
+    expect($rootScope.form.nameInput.$error.uniqueProperty_name).to.be.true;
   }));
 
   it('Changing property path creates invalid', inject(function ($compile, $rootScope){
@@ -235,7 +235,7 @@ describe('uniqueProperty directive', function () {
     expect($rootScope.form.nameInput.$invalid).to.be.false;
     $rootScope.propertyPath = 'name';
     $rootScope.$digest();
-    expect($rootScope.form.nameInput.$error.uniqueProperty).to.be.true;
+    expect($rootScope.form.nameInput.$error.uniqueProperty_unique).to.be.true;
   }));
 
   it('deep paths', inject(function ($compile, $rootScope){
@@ -251,6 +251,6 @@ describe('uniqueProperty directive', function () {
                unique-property-path="{{propertyPath}}"> \
       </form>')($rootScope);
     $rootScope.$digest();
-    expect($rootScope.form.nameInput.$error.uniqueProperty).to.be.true;
+    expect($rootScope.form.nameInput.$error.uniqueProperty_name_first).to.be.true;
   }));
 });
